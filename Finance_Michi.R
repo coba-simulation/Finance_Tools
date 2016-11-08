@@ -10,11 +10,7 @@ library(foreach)
 
 date.T=format(Sys.time(), "%d.%m.%Y")
 MyAssets<-rbind(
-   c("DekaFonds_CF","2859","8","02.01.2015",date.T,0.963,0,0,0,1),
-   c("DekaFonds_CF_sppl","2859","8","02.02.2015",date.T,0,1,60,12,1),
-   c("UmweltInvest_CF","100087282","8","01.01.2013",date.T,2.789,0,0,0,1),
-   c("UmweltInvest_CF_sppl","100087282","8","05.10.2016",date.T,0,1,50,12,1),
-   c("ChancePlus_sppl","101597066","8","05.10.2016",date.T,0,1,50,12,1),   
+   c("DekaFonds_CF","2859","8","02.01.2015",date.T,0.963,0,0,0,1), 
    c("DKB_ETF_sppl","122054829","8","03.11.2016",date.T,0,1,150,12,1),
    c("Paypal","121455745","40","06.11.2016",date.T,12,0,0,0,1)
 )
@@ -55,13 +51,6 @@ date.T<-"03.11.2016" #to when
 
 weights<-c(14.047,3.228,0.240,1.4653,12)
 
-DekaFonds_CF    <-read.csv(paste0("http://www.ariva.de/quote/historic/historic.csv?secu=2859&boerse_id=8&clean_split=1&clean_payout=0&clean_bezug=1&min_time=",date.F,"&max_time=",date.T,"&trenner=%3B&go=Download"),sep=";")
-UmweltInvest_CF <-read.csv(paste0("http://www.ariva.de/quote/historic/historic.csv?secu=100087282&boerse_id=8&clean_split=1&clean_payout=0&clean_bezug=1&min_time=",date.F,"&max_time=",date.T,"&trenner=%3B&go=Download"),sep=";")
-ChancePlus<-read.csv(paste0("http://www.ariva.de/quote/historic/historic.csv?secu=101597066&boerse_id=8&clean_split=1&clean_payout=0&clean_bezug=1&min_time=",date.F,"&max_time=",date.T,"&trenner=%3B&go=Download"),sep=";")
-DKB_ETF<-read.csv(paste0("http://www.ariva.de/quote/historic/historic.csv?secu=122054829&boerse_id=8&clean_split=1&clean_payout=0&clean_bezug=1&min_time=",date.F,"&max_time=",date.T,"&trenner=%3B&go=Download"),sep=";")
-Paypal<-read.csv(paste0("http://www.ariva.de/quote/historic/historic.csv?secu=121455745&boerse_id=40&clean_split=1&clean_payout=0&clean_bezug=1&min_time=",date.F,"&max_time=",date.T,"&trenner=%3B&go=Download"),sep=";")
-
-labels = c("DekaFonds_CF", "UmweltInvest_CF", "ChancePlus", "DKB_ETF","Paypal")
 secu_labels = (2859,100087282,101597066,122054829,121455745)
 boerse_id_labels= c(8,8,8,8,40)
 watchlist<-c("BASF","Monsanto","Bayer","Merck","Novartis", "Nestle","Fresenius","Brookdale_Senior_Living","DaVita","LifePoint_Health","Cognex","DataLogic","Hollysys_Automation_Technologies","ISRA_Vision","Rockwell_Automation","Berkshire_Hathaway")
