@@ -55,6 +55,26 @@ MyPortfolio <- PortCalc(Assets,c(0.5,0.5),plot=T)
 # 3. Ebene
 PortVaR <-VaR(MyPortfolio,0.00001)
 
+# Idee der Modularen Struktur
 
+Mit diesen drei Ebenen können wir sicherstellen, dass sich einzelne Teilfunktionen zu "Masterfunktionen" bündeln lassen. Also kann ich beispielsweise die funktionen der 3 Ebenen in eine funktion bündeln um den gewünschten Output zu bekommen. Eien "Masterfunktion" hat dann immer die Struktur:
 
-ps irgendwann lad ich mal dne Code hoch den ich schon habe... :-P
+kannAlles<-function("ISIN","from","to","weights","alpha",bliblablub,...) {
+
+#1. Ebene
+f1<-f'("ISIN","from","to")
+
+#2. Ebene
+f2.1<-f''(f1,"weights")
+f2.2<-f'''(f1,)
+plot(f2.2)
+
+#3. Ebene
+f3.1<-f''''(f2.1,f.2,"alpha")
+f3.2<- ......
+
+}
+
+Genau, so stelle ich mir den Baukasten vor
+
+ps irgendwann lad ich mal den Code hoch den ich schon habe... :-P
