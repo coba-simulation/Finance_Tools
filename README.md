@@ -1,6 +1,7 @@
 # Finance_Tools
 A collection of different tools to analyze a private portfolio
 
+
 Wir brauchen unbedingt eine ordentliche Struktur für dieses Projekt ansonsten funktioniert eine loose und ungezwungene Zusammenarbeit nicht. Ich schlage daher eine Art modularer Aufbau vor. Das heißt wir definieren verschiedene Funktionen für verschiedene Verarbeitungsschritte. Am besten wir machen 3 Ebenen:
 
 1. Ebene: Loading
@@ -56,4 +57,4 @@ PortVaR <-VaR(MyPortfolio,0.00001)
 
 
 
-
+ps irgendwann lad ich mal dne Code hoch den ich schon habe... :-P
