@@ -15,3 +15,6 @@ MyAssets<-rbind(
 # Define the Starting
 date.F="01.10.2016"
 
+Var(MyAssets,date.F)
+
+Density(MyAssets,date.F)
