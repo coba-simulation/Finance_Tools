@@ -1,6 +1,6 @@
 # Plotting of the Portfolio density:: PortDensity()
 
-Density<-function(MyAssets,date.F,rettype="logdiff"){
+Density<-function(MyAssets,date.F,rettype="logDiff"){
   # Input:
   ## MyAssets
   ## A matrix with the following structure
