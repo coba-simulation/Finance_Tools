@@ -32,7 +32,7 @@ Density<-function(MyAssets,date.F,rettype="logDiff"){
 }
 
 
-# Estimating the Value at rist:: PortDensity()
+# Estimating the Value at risk:: VaR()
 
 
 VaR<-function(MyAssets,date.F,p=0.99,rettype="logDiff"){
@@ -58,3 +58,4 @@ VaR<-function(MyAssets,date.F,p=0.99,rettype="logDiff"){
   return(VaR)
 }
 
+# Hier ist geplant, dass die VaR function deutlich ausgebaut wird und mittels sampling tail risks darstellen kann. Idee: man sampled zusätzlich noch aus einer Verteilung mit long tails oder aus einer nach links verschobenen normalveteilung
