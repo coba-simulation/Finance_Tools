@@ -35,7 +35,7 @@ Density<-function(MyAssets,date.F,rettype="logdiff"){
 # Estimating the Value at rist:: PortDensity()
 
 
-VaR<-function(MyAssets,date.F,p=0.99){
+VaR<-function(MyAssets,date.F,p=0.99,rettype="logDiff"){
   # Input:
   ## MyAssets
   ## A matrix with the following structure
@@ -53,7 +53,7 @@ VaR<-function(MyAssets,date.F,p=0.99){
   # Output:
   ## the VaR for the asset or portfolio
   port<-PortConstruct(MyAssets,date.F)
-  ret<- TimeCont(port$level,rettype)
+  ret<- TimeCont(port$level,mode=rettype)
   VaR<-quantile(ret,1-p)*port$level[length(port$level)]
   return(VaR)
 }
