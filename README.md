@@ -4,4 +4,4 @@ Die Finance Workbench soll so konzipiert sein, dass Sie auch Personen die ungeü
 
 # Struktur
 
-Strukturell schlage ich vor, dass die Workbench aus einzelnen Funkionen besteht, die gut dokumentiert sind, zudem sollte eine Helpfile für jede Funktion angelegt werden, die zeigt wie die Funktion funktioniert.
+Strukturell schlage ich vor, dass die Workbench aus einzelnen Funkionen besteht, die gut dokumentiert sind, zudem sollte eine Helpfile für jede Funktion angelegt werden, die zeigt wie die Funktion funktioniert. Bisher liegen die Funktionen als workbench_functions.RData in Git. Die dazugehörige helpfile heißt portfoliofun.R
