@@ -1,25 +1,17 @@
-#test: add a comment line. (hansi)
 #Finance Workbench
 
 rm(list=ls())
 graphics.off()
 
 # Load the libraries
-libraries = c("quantmod", "corrplot", "corpcor")
+libraries = c("quantmod", "corrplot", "corpcor", "xts", "zoo")
 lapply(libraries, function(x)if(!(x %in% installed.packages())){install.packages(x)})
 lapply(libraries, require, quietly = TRUE, character.only = TRUE)
 
+# overcome problem with localization and datetime format in case of source google
+invisible(Sys.setlocale("LC_TIME", "C"))
 
-
-####### set working directory
-#a = "C:/Users/MKRJSO/Dropbox/01_MK/MasterThesis_JohannesStoiber/Masterthesis"
-#b = "C:/Users/Johannes/Dropbox/01_MK/MasterThesis_JohannesStoiber/Masterthesis"
-#if(dir.exists(a) == TRUE){path = a}
-#if(dir.exists(b) == TRUE){path = b}
-#source(paste(path,"/helperfunctions.R",sep = ""))
-#setwd(paste(path))
-
-# Load the functions
+####### set working directory and load the functions
 a = "C:/Users/Johannes/Documents/GitHub/Finance_Tools"
 ifelse(dir.exists(a) == TRUE, load(paste0(a,"/workbench_functions.RDATA")), load("workbench_functions.RDATA")) 
 
@@ -28,63 +20,7 @@ start_date<-"2016-01-04"
 end_date<- "2017-06-09"
 from_to<-paste(start_date,"/",end_date,sep="")
 
-stock(
-  Symbol="DAX"
-  from_to=from_to
-  value_invested=2500
-  convert=T
-  begin=F
-  price="close"
-  plot=T
-  from="google"
-stock<-getSymbols(Symbol,src=from,auto.assign=F)
-if (price=="close"){
-  stock_truncated<-stock[from_to,4]
-}
-if (price=="open"){
-  stock_truncated<-stock[from_to,1]
-}
-if (price=="high"){
-  stock_truncated<-stock[from_to,2]
-}
-if (price=="low"){
-  stock_truncated<-stock[from_to,3]
-}
-
-if (convert==T){
-  if (begin==T){
-    norm<-stock_truncated[1]
-    stock_norm<-(stock_truncated/rep(norm,length(stock_truncated)))*rep(value_invested,length(stock_truncated))
-    
-    if (plot==T){
-      barChart(stock_norm,name=Symbol)
-    }
-    return(stock_norm)
-  }
-  
-  if (begin==F){
-    norm<-stock_truncated[length(stock_truncated)]
-    stock_norm<-(stock_truncated/rep(norm,length(stock_truncated)))*rep(value_invested,length(stock_truncated))
-    
-    if (plot==T){
-      barChart(stock_norm,name=Symbol)
-    }
-    return(stock_norm)
-  }
-}
-
-
-
-if (convert==F){
-  if (plot==T){
-    barChart(stock_truncated,name=Symbol)
-  }
-  return(stock_norm)
-}
-
-
-
-
+stock( Symbol="DAX", from_to=from_to, value_invested=2500, convert=T, begin=F, price="close",  plot=T,  from="google")
 
 stock(Symbol="MON",from_to=from_to,value_invested=1000,convert=T,price="close",plot=T,from="google")
 
