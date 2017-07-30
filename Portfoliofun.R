@@ -1,22 +1,26 @@
-#test: add a comment line. (hansi)
 #Finance Workbench
 
 rm(list=ls())
+graphics.off()
 
 # Load the libraries
-library(quantmod)
-library(corrplot)
-library(corpcor)
+libraries = c("quantmod", "corrplot", "corpcor", "xts", "zoo")
+lapply(libraries, function(x)if(!(x %in% installed.packages())){install.packages(x)})
+lapply(libraries, require, quietly = TRUE, character.only = TRUE)
 
-# Load the functions
-load("workbench_functions.RDATA")
+# overcome problem with localization and datetime format in case of source google
+invisible(Sys.setlocale("LC_TIME", "C"))
+
+####### set working directory and load the functions
+a = "C:/Users/Johannes/Documents/GitHub/Finance_Tools"
+ifelse(dir.exists(a) == TRUE, load(paste0(a,"/workbench_functions.RDATA")), load("workbench_functions.RDATA")) 
 
 # Define the start and the end date
 start_date<-"2016-01-04"
 end_date<- "2017-06-09"
 from_to<-paste(start_date,"/",end_date,sep="")
 
-stock(Symbol="DAX",from_to=from_to,value_invested=2500,convert=T,begin=F,price="close",plot=T,from="google")
+stock( Symbol="DAX", from_to=from_to, value_invested=2500, convert=T, begin=F, price="close",  plot=T,  from="google")
 
 stock(Symbol="MON",from_to=from_to,value_invested=1000,convert=T,price="close",plot=T,from="google")
 
